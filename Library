@@ -941,3 +941,30 @@ function library:Window(name)
 end
 
 return library
+
+local getgenv, getnamecallmethod, hookmetamethod, newcclosure, checkcaller, stringlower = getgenv, getnamecallmethod, hookmetamethod, newcclosure, checkcaller, string.lower
+local Players, StarterGui, OldNamecall = game.Players, game.StarterGui
+
+if getgenv().kick then
+	return
+end
+
+getgenv().kick = {
+	Enabled = true,
+	SendNotifications = false,
+	CheckCaller = false
+}
+
+OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
+	if (getgenv().kick.CheckCaller and not checkcaller() or true) and
+		stringlower(getnamecallmethod()) == "kick" and
+		kick.Enabled then
+		return nil
+	end
+	return OldNamecall(...)
+end))
+
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+	game.VirtualUser:CaptureController()
+	game.VirtualUser:ClickButton2(Vector2.new())
+end)

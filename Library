@@ -668,7 +668,7 @@ function library:Window(name)
 			Label.Text = text or "Label"
 			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Label.TextSize = 16.000
-			Label.ZIndex = 2 + zindex
+			Label.ZIndex = 7 + zindex
 
 		canvasSize = canvasSize + 30
 			DropdownFrame.Visible = false
@@ -676,10 +676,6 @@ function library:Window(name)
 
 			if #DropdownFrame:GetChildren() < 8 then
 				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 30)
-			end
-
-			if selective then
-				Dropdown.Text = name
 			end
 
 			pastSliders[winCount] = false

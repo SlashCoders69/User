@@ -683,20 +683,18 @@ function library:Window(name)
 
 		function dropFunctions:Box(text)
 			local TextBox = Instance.new("TextBox")
-			local UICorner = Instance.new("UICorner")
-
 			TextBox.Parent = DropdownFrame
-			TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			TextBox.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
 			TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.Position = UDim2.new(0, 6, 0, canvasSize + 1)
 			TextBox.Size = UDim2.new(0, 170, 0, 26)
 			TextBox.Font = Enum.Font.SourceSans
 			TextBox.PlaceholderColor3 = Color3.fromRGB(100, 0, 190)
 			TextBox.PlaceholderText = "..."
-			TextBox.Text = text or "Box"
-			TextBox.TextColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.Text = text or ""
+			TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.TextSize = 16.000
-			TextBox.TextStrokeColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.ZIndex = 6 + zindex
 
 			TextBox:GetPropertyChangedSignal("Text"):connect(function()
@@ -705,8 +703,6 @@ function library:Window(name)
 			TextBox.FocusLost:Connect(function()
 				callback(TextBox.Text, true)
 			end)
-
-			UICorner.Parent = TextBox
 
 			canvasSize = canvasSize + 27
 			DropdownFrame.Visible = false

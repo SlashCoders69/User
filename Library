@@ -109,7 +109,6 @@ function library:Window(name)
 	local HeaderText = Instance.new("TextLabel")
 	local Minimise = Instance.new("TextButton")
 	local Window = Instance.new("Frame")
-	local UICorner = Instance.new("UICorner")
 
 	UiWindow.Name = "UiWindow"
 	UiWindow.Parent = SlashUiLib
@@ -170,8 +169,6 @@ function library:Window(name)
 	Window.Position = UDim2.new(0, 0, 0, 0)
 	Window.Size = UDim2.new(0, 207, 0, 33)
 	Window.ZIndex = 1 + zindex
-
-	UICorner.Parent = Window
 
 	local functions = {}
 	sizes[winCount] = 33

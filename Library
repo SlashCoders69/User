@@ -681,6 +681,44 @@ function library:Window(name)
 			pastSliders[winCount] = false
 		end
 
+		function dropFunctions:Box(text)
+			local TextBox = Instance.new("TextBox")
+			local UICorner = Instance.new("UICorner")
+
+			TextBox.Parent = DropdownFrame
+			TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			TextBox.Position = UDim2.new(0, 6, 0, canvasSize + 1)
+			TextBox.Size = UDim2.new(0, 170, 0, 26)
+			TextBox.Font = Enum.Font.SourceSans
+			TextBox.PlaceholderColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.PlaceholderText = "..."
+			TextBox.Text = ""
+			TextBox.TextColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.TextSize = 16.000
+			TextBox.TextStrokeColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.ZIndex = 6 + zindex
+
+			TextBox:GetPropertyChangedSignal("Text"):connect(function()
+				callback(TextBox.Text, false)
+			end)
+			TextBox.FocusLost:Connect(function()
+				callback(TextBox.Text, true)
+			end)
+
+			UICorner.Parent = TextBox
+
+			canvasSize = canvasSize + 27
+			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
+
+			if #DropdownFrame:GetChildren() < 8 then
+				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
+			end
+
+			pastSliders[winCount] = false
+		end
+
 		function dropFunctions:Remove(name)
 			local foundIt
 			for i, v in pairs(DropdownFrame:GetChildren()) do

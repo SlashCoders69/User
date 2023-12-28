@@ -142,6 +142,7 @@ function library:Window(name)
 
 	local Minimise = Instance.new("TextButton")
 	local Window = Instance.new("Frame")
+
 	Minimise.Name = "Minimise"
 	Minimise.Parent = Header
 	Minimise.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
@@ -171,7 +172,10 @@ function library:Window(name)
 	Window.ZIndex = 1 + zindex
 
 	local UICorner = Instance.new("UICorner")
-	UICorner.Parent = Window
+	local UICorner_2 = Instance.new("UICorner")
+
+	UICorner.Parent = UiWindow
+	UICorner_2.Parent = Window
 
 	local functions = {}
 	sizes[winCount] = 33

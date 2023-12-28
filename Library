@@ -725,65 +725,65 @@ function library:Window(name)
 		end
 
 		function dropFunctions:Toggle(text, on, callback)
-		local callback = callback or function() end
+			local callback = callback or function() end
 
-		sizes[winCount] = sizes[winCount] + 32
-		Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
-		listOffset[winCount] = listOffset[winCount] + 32
+			sizes[winCount] = sizes[winCount] + 32
+			Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
+			listOffset[winCount] = listOffset[winCount] + 32
 
-		local ToggleDescription = Instance.new("TextLabel")
-		local ToggleButton = Instance.new("TextButton")
-		local ToggleFiller = Instance.new("Frame")
+			local ToggleDescription = Instance.new("TextLabel")
+			local ToggleButton = Instance.new("TextButton")
+			local ToggleFiller = Instance.new("Frame")
 
-		ToggleDescription.Name = "ToggleDescription"
-		ToggleDescription.Parent = DropdownFrame
-		ToggleDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ToggleDescription.BackgroundTransparency = 1.000
-		ToggleDescription.Position = UDim2.new(0, 14, 0, canvasSize + 1)
-		ToggleDescription.Size = UDim2.new(0, 131, 0, 26)
-		ToggleDescription.Font = Enum.Font.SourceSans
-		ToggleDescription.Text = text or "Toggle"
-		ToggleDescription.TextColor3 = Color3.fromRGB(0, 0, 0)
-		ToggleDescription.TextSize = 16.000
-		ToggleDescription.TextWrapped = true
-		ToggleDescription.TextXAlignment = Enum.TextXAlignment.Left
-		ToggleDescription.ZIndex = 6 + zindex
+			ToggleDescription.Name = "ToggleDescription"
+			ToggleDescription.Parent = DropdownFrame
+			ToggleDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleDescription.BackgroundTransparency = 1.000
+			ToggleDescription.Position = UDim2.new(0, 14, 0, canvasSize + 1)
+			ToggleDescription.Size = UDim2.new(0, 131, 0, 26)
+			ToggleDescription.Font = Enum.Font.SourceSans
+			ToggleDescription.Text = text or "Toggle"
+			ToggleDescription.TextColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleDescription.TextSize = 16.000
+			ToggleDescription.TextWrapped = true
+			ToggleDescription.TextXAlignment = Enum.TextXAlignment.Left
+			ToggleDescription.ZIndex = 6 + zindex
 
-		ToggleButton.Name = "ToggleButton"
-		ToggleButton.Parent = ToggleDescription
-		ToggleButton.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
-		ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		ToggleButton.Position = UDim2.new(1.2061069, 0, 0.0769230798, 0)
-		ToggleButton.Size = UDim2.new(0, 22, 0, 22)
-		ToggleButton.Font = Enum.Font.SourceSans
-		ToggleButton.Text = ""
-		ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-		ToggleButton.TextSize = 14.000
-		ToggleButton.ZIndex = 6 + zindex
-		ToggleButton.MouseButton1Up:Connect(function()
-			ToggleFiller.Visible = not ToggleFiller.Visible
-			callback(ToggleFiller.Visible)
-		end)
+			ToggleButton.Name = "ToggleButton"
+			ToggleButton.Parent = ToggleDescription
+			ToggleButton.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
+			ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleButton.Position = UDim2.new(1.2061069, 0, 0.0769230798, 0)
+			ToggleButton.Size = UDim2.new(0, 22, 0, 22)
+			ToggleButton.Font = Enum.Font.SourceSans
+			ToggleButton.Text = ""
+			ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleButton.TextSize = 14.000
+			ToggleButton.ZIndex = 6 + zindex
+			ToggleButton.MouseButton1Up:Connect(function()
+				ToggleFiller.Visible = not ToggleFiller.Visible
+				callback(ToggleFiller.Visible)
+			end)
 
-		ToggleFiller.Name = "ToggleFiller"
-		ToggleFiller.Parent = ToggleButton
-		ToggleFiller.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		ToggleFiller.BorderColor3 = Color3.fromRGB(100, 0, 190)
-		ToggleFiller.Position = UDim2.new(0, 5, 0, 5)
-		ToggleFiller.Size = UDim2.new(0, 12, 0, 12)
-		ToggleFiller.Visible = on
-		ToggleFiller.ZIndex = 6 + zindex
+			ToggleFiller.Name = "ToggleFiller"
+			ToggleFiller.Parent = ToggleButton
+			ToggleFiller.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleFiller.BorderColor3 = Color3.fromRGB(100, 0, 190)
+			ToggleFiller.Position = UDim2.new(0, 5, 0, 5)
+			ToggleFiller.Size = UDim2.new(0, 12, 0, 12)
+			ToggleFiller.Visible = on
+			ToggleFiller.ZIndex = 6 + zindex
 
-		canvasSize = canvasSize + 27
-		DropdownFrame.Visible = false
-		DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
+			canvasSize = canvasSize + 27
+			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
-		if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
+			if #DropdownFrame:GetChildren() < 8 then
+					DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
+			end
+
+			pastSliders[winCount] = false
 		end
-
-		pastSliders[winCount] = false
-	end
 
 		function dropFunctions:Remove(name)
 			local foundIt

@@ -113,6 +113,7 @@ function library:Window(name)
 	local UICorner = Instance.new("UICorner")
 	local UICorner_2 = Instance.new("UICorner")
 	local UICorner_3 = Instance.new("UICorner")
+	local UICorner_4 = Instance.new("UICorner")
 
 
 	UiWindow.Name = "UiWindow"
@@ -151,7 +152,7 @@ function library:Window(name)
 	Minimise.Parent = Header
 	Minimise.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
 	Minimise.BorderColor3 = Color3.fromRGB(100, 0, 190)
-	Minimise.Position = UDim2.new(0, 185, 0, 2)
+	Minimise.Position = UDim2.new(0, 175, 0, 2)
 	Minimise.Size = UDim2.new(0, 22, 0, 22)
 	Minimise.ZIndex = 7 + zindex
 	Minimise.Font = Enum.Font.SourceSansLight
@@ -177,7 +178,8 @@ function library:Window(name)
 
 	UICorner.Parent = UiWindow
 	UICorner_2.Parent = Header
-	UICorner_3.Parent = Window
+	UICorner_3.Parent = Minimise
+	UICorner_4.Parent = Window
 
 	local functions = {}
 	sizes[winCount] = 33

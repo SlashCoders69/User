@@ -539,7 +539,6 @@ function library:Window(name)
 	end
 
 	function functions:Dropdown(text, buttons, callback, selective)
-		local text = text or "Dropdown"
 		local buttons = buttons or {}
 		local callback = callback or function() end
 
@@ -550,7 +549,6 @@ function library:Window(name)
 
 		sizes[winCount] = sizes[winCount] + 32
 		Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
-
 		listOffset[winCount] = listOffset[winCount] + 32
 
 		Dropdown.Name = "Dropdown"
@@ -561,7 +559,7 @@ function library:Window(name)
 		Dropdown.Size = UDim2.new(0, 182, 0, 26)
 		Dropdown.Selected = true
 		Dropdown.Font = Enum.Font.SourceSans
-		Dropdown.Text = tostring(text)
+		Dropdown.Text = tostring(text or "Dropdown")
 		Dropdown.TextColor3 = Color3.fromRGB(0, 0, 0)
 		Dropdown.TextSize = 16.000
 		Dropdown.TextStrokeTransparency = 123.000
@@ -570,8 +568,8 @@ function library:Window(name)
 		Dropdown.MouseButton1Up:Connect(function()
 			for i, v in pairs(dropdowns) do
 				if v ~= DropdownFrame then
-				v.Visible = false
-				DownSign.Rotation = 0
+					v.Visible = false
+					DownSign.Rotation = 0
 				end
 			end
 			if DropdownFrame.Visible then
@@ -609,43 +607,51 @@ function library:Window(name)
 		DropdownFrame.ZIndex = 5 + zindex
 		DropdownFrame.ScrollingDirection = Enum.ScrollingDirection.Y
 		DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
 		UICorner.Parent = Dropdown
+
 		table.insert(dropdowns, DropdownFrame)
+
 		local dropFunctions = {}
 		local canvasSize = 0
-		function dropFunctions:Button(name)
-			local name = name or ""
-			local Button_2 = Instance.new("TextButton")
-			local UICorner_2 = Instance.new("UICorner")
 
-			Button_2.Name = "Button"
-			Button_2.Parent = DropdownFrame
-			Button_2.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
-			Button_2.BorderColor3 = Color3.fromRGB(100, 0, 190)
-			Button_2.Position = UDim2.new(0, 6, 0, canvasSize + 1)
-			Button_2.Size = UDim2.new(0, 170, 0, 26)
-			Button_2.Selected = true
-			Button_2.Font = Enum.Font.SourceSans
-			Button_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-			Button_2.TextSize = 16.000
-			Button_2.TextStrokeTransparency = 123.000
-			Button_2.ZIndex = 6 + zindex
-			Button_2.Text = name
-			Button_2.TextWrapped = true
-			UICorner_2.Parent = Button_2
+		function dropFunctions:Button(name)
+			local Button = Instance.new("TextButton")
+			local UICorner = Instance.new("UICorner")
+
+			Button.Name = "Button"
+			Button.Parent = DropdownFrame
+			Button.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
+			Button.BorderColor3 = Color3.fromRGB(100, 0, 190)
+			Button.Position = UDim2.new(0, 6, 0, canvasSize + 1)
+			Button.Size = UDim2.new(0, 170, 0, 26)
+			Button.Selected = true
+			Button.Font = Enum.Font.SourceSans
+			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Button.TextSize = 16.000
+			Button.TextStrokeTransparency = 123.000
+			Button.ZIndex = 6 + zindex
+			Button.Text = name or "Button"
+			Button.TextWrapped = true
+
+			UICorner.Parent = Button
+
 			canvasSize = canvasSize + 27
 			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
+
 			if #DropdownFrame:GetChildren() < 8 then
-			DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
+				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
 			end
-			Button_2.MouseButton1Up:Connect(function()
+
+			Button.MouseButton1Up:Connect(function()
 				callback(name)
-		DropdownFrame.Visible = false
-		if selective then
-			Dropdown.Text = name
-		end
+				DropdownFrame.Visible = false
+				if selective then
+					Dropdown.Text = name
+				end
 			end)
 		end
+
 		function dropFunctions:Remove(name)
 			local foundIt
 			for i, v in pairs(DropdownFrame:GetChildren()) do
@@ -654,6 +660,7 @@ function library:Window(name)
 					v.Position = UDim2.new(0, 6, 0, v.Position.Y.Offset - 27)
 					DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 				end
+
 				if v.Text == name then
 					foundIt = true
 					v:Destroy()
@@ -662,6 +669,7 @@ function library:Window(name)
 					end
 				end
 			end
+
 			if not foundIt then
 				warn("The button you tried to remove didn't exist!")
 			end

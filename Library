@@ -645,7 +645,7 @@ function library:Window(name)
 				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
 			end
 
-			Button.MouseButton1Up:Connect(function()
+			Button.MouseButton1Up:Connect(function(callback)
 				callback(name)
 				DropdownFrame.Visible = false
 				if selective then

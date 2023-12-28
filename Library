@@ -174,7 +174,7 @@ function library:Window(name)
 	local UICorner = Instance.new("UICorner")
 	local UICorner_2 = Instance.new("UICorner")
 
-	UICorner.Parent = UiWindow
+	UICorner.Parent = Header
 	UICorner_2.Parent = Window
 
 	local functions = {}

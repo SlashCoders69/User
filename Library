@@ -663,19 +663,19 @@ function library:Window(name)
 			Label.BackgroundTransparency = 1.000
 			Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Label.Position = UDim2.new(0, 6, 0, canvasSize + 1)
-			Label.Size = UDim2.new(0, 206, 0, 29)
+			Label.Size = UDim2.new(0, 170, 0, 26)
 			Label.Font = Enum.Font.SourceSans
 			Label.Text = text or "Label"
 			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Label.TextSize = 16.000
-			Label.ZIndex = 7 + zindex
+			Label.ZIndex = 6 + zindex
 
-		canvasSize = canvasSize + 30
+		canvasSize = canvasSize + 27
 			DropdownFrame.Visible = false
 			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 30)
+				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
 			end
 
 			pastSliders[winCount] = false

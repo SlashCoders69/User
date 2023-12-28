@@ -185,6 +185,8 @@ function library:Window(name)
 		listOffset[winCount] = listOffset[winCount] + 32
 
 		local Button = Instance.new("TextButton")
+		local UICorner = Instance.new("UICorner")
+
 		Button.Name = "Button"
 		Button.Parent = Window
 		Button.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
@@ -201,7 +203,6 @@ function library:Window(name)
 		Button.Text = name or "Button"
 		Button.MouseButton1Down:Connect(callback)
 
-		local UICorner = Instance.new("UICorner")
 		UICorner.Parent = Button
 
 		pastSliders[winCount] = false
@@ -617,7 +618,7 @@ function library:Window(name)
 		local dropFunctions = {}
 		local canvasSize = 0
 
-		function dropFunctions:Button(name)
+		function dropFunctions:Button(name, callback)
 			local Button = Instance.new("TextButton")
 			local UICorner = Instance.new("UICorner")
 
@@ -646,12 +647,11 @@ function library:Window(name)
 			end
 
 			Button.MouseButton1Up:Connect(function(callback)
-				callback(name)
-				DropdownFrame.Visible = false
-				if selective then
-					Dropdown.Text = name
-				end
-			end)
+
+			DropdownFrame.Visible = false
+			if selective then
+				Dropdown.Text = name
+			end
 		end
 
 		function dropFunctions:Remove(name)

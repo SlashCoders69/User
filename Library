@@ -9,8 +9,8 @@ local dropdownSizes = {}
 local destroyed
 local colorPickers = {}
 
-if game.CoreGui:FindFirstChild("SlashUiLib") then
-	game.CoreGui:FindFirstChild("SlashUiLib"):Destroy()
+if game:GetService("CoreGui"):FindFirstChild("SlashUiLib") then
+	game:GetService("CoreGui"):FindFirstChild("SlashUiLib"):Destroy()
 	destroyed = true
 end
 
@@ -23,6 +23,7 @@ local player = players.LocalPlayer
 local mouse = player:GetMouse()
 local run = game:service("RunService")
 local stepped = run.Stepped
+
 function Dragify(obj)
 	spawn(function()
 		local minitial
@@ -47,35 +48,33 @@ function Dragify(obj)
 						isdragging = false
 					end
 				end)
-		end
+			end
+		end)
 	end)
-end)
 end
 
 local function protect_gui(obj)
-if destroyed then
-	obj.Parent = game.CoreGui
+	if destroyed then
+		obj.Parent = game:GetService("CoreGui")
 	return
+	end
+
+	if syn and syn.protect_gui then
+		syn.protect_gui(obj)
+		obj.Parent = game:GetService("CoreGui")
+	elseif PROTOSMASHER_LOADED then
+		obj.Parent = get_hidden_gui()
+	else
+		obj.Parent = game:GetService("CoreGui")
+	end
 end
-if syn and syn.protect_gui then
-syn.protect_gui(obj)
-obj.Parent = game.CoreGui
-elseif PROTOSMASHER_LOADED then
-obj.Parent = get_hidden_gui()
-else
-obj.Parent = game.CoreGui
-end
-end
+
 local SlashUiLib = Instance.new("ScreenGui")
-
 SlashUiLib.Name = "SlashUiLib"
-
 protect_gui(SlashUiLib)
 
 local xOffset = 20
-
 local uis = game:GetService("UserInputService")
-
 local keybindConnection
 
 function library:Destroy()
@@ -84,12 +83,15 @@ function library:Destroy()
 		keybindConnection:Disconnect()
 	end
 end
+
 function library:Hide()
 	SlashUiLib.Enabled = not SlashUiLib.Enabled
-end	
+end
 
 function library:Keybind(key)
-	if keybindConnection then keybindConnection:Disconnect() end
+	if keybindConnection then
+		keybindConnection:Disconnect()
+	end
 
 	keybindConnection = uis.InputBegan:Connect(function(input, gp)
 		if not gp and input.KeyCode == Enum.KeyCode[key] then

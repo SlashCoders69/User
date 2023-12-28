@@ -550,6 +550,7 @@ function library:Window(name)
 		local DropdownFrame = Instance.new("ScrollingFrame")
 		local UICorner = Instance.new("UICorner")
 		local UICorner_2 = Instance.new("UICorner")
+		local UICorner_3 = Instance.new("UICorner")
 
 		sizes[winCount] = sizes[winCount] + 32
 		Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
@@ -600,8 +601,8 @@ function library:Window(name)
 		DropdownFrame.Name = "DropdownFrame"
 		DropdownFrame.Parent = Dropdown
 		DropdownFrame.Active = true
-		DropdownFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		DropdownFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		DropdownFrame.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
+		DropdownFrame.BorderColor3 = Color3.fromRGB(100, 0, 190)
 		DropdownFrame.Position = UDim2.new(0, 0, 0, 28)
 		DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
 		DropdownFrame.Visible = false
@@ -613,7 +614,8 @@ function library:Window(name)
 		DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
 
 		UICorner.Parent = Dropdown
-		UICorner_2.Parent = DropdownFrame
+		UICorner_2.Parent = Downsign
+		UICorner_3.Parent = DropdownFrame
 
 		table.insert(dropdowns, DropdownFrame)
 
@@ -626,8 +628,8 @@ function library:Window(name)
 
 			Button.Name = "Button"
 			Button.Parent = DropdownFrame
-			Button.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
-			Button.BorderColor3 = Color3.fromRGB(100, 0, 190)
+			Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Button.Position = UDim2.new(0, 6, 0, canvasSize + 1)
 			Button.Size = UDim2.new(0, 170, 0, 26)
 			Button.Selected = true

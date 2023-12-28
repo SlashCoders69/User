@@ -693,7 +693,7 @@ function library:Window(name)
 			TextBox.Font = Enum.Font.SourceSans
 			TextBox.PlaceholderColor3 = Color3.fromRGB(100, 0, 190)
 			TextBox.PlaceholderText = "..."
-			TextBox.Text = ""
+			TextBox.Text = text or "Box"
 			TextBox.TextColor3 = Color3.fromRGB(100, 0, 190)
 			TextBox.TextSize = 16.000
 			TextBox.TextStrokeColor3 = Color3.fromRGB(100, 0, 190)

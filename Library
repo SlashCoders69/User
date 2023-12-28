@@ -7,7 +7,6 @@ local pastSliders = {}
 local dropdowns = {}
 local dropdownSizes = {}
 local destroyed
-
 local colorPickers = {}
 
 if game.CoreGui:FindFirstChild("SlashUiLib") then
@@ -497,6 +496,7 @@ function library:Window(name)
 		local Dropdown = Instance.new("TextButton")
 		local DownSign = Instance.new("TextLabel")
 		local DropdownFrame = Instance.new("ScrollingFrame")
+		local UICorner = Instance.new("UICorner")
 
 		sizes[winCount] = sizes[winCount] + 32
 		Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
@@ -512,7 +512,7 @@ function library:Window(name)
 		Dropdown.Selected = true
 		Dropdown.Font = Enum.Font.SourceSans
 		Dropdown.Text = tostring(text)
-		Dropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Dropdown.TextColor3 = Color3.fromRGB(0, 0, 0)
 		Dropdown.TextSize = 16.000
 		Dropdown.TextStrokeTransparency = 123.000
 		Dropdown.TextWrapped = true
@@ -540,7 +540,7 @@ function library:Window(name)
 		DownSign.Size = UDim2.new(0, 27, 0, 22)
 		DownSign.Font = Enum.Font.SourceSans
 		DownSign.Text = "^"
-		DownSign.TextColor3 = Color3.fromRGB(255, 255, 255)
+		DownSign.TextColor3 = Color3.fromRGB(0, 0, 0)
 		DownSign.TextSize = 20.000
 		DownSign.ZIndex = 4 + zindex
 		DownSign.TextYAlignment = Enum.TextYAlignment.Bottom
@@ -559,12 +559,15 @@ function library:Window(name)
 		DropdownFrame.ZIndex = 5 + zindex
 		DropdownFrame.ScrollingDirection = Enum.ScrollingDirection.Y
 		DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+		UICorner.Parent = Dropdown
 		table.insert(dropdowns, DropdownFrame)
 		local dropFunctions = {}
 		local canvasSize = 0
 		function dropFunctions:Button(name)
 			local name = name or ""
 			local Button_2 = Instance.new("TextButton")
+			local UICorner_2 = Instance.new("UICorner")
+
 			Button_2.Name = "Button"
 			Button_2.Parent = DropdownFrame
 			Button_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -579,6 +582,7 @@ function library:Window(name)
 			Button_2.ZIndex = 6 + zindex
 			Button_2.Text = name
 			Button_2.TextWrapped = true
+			UICorner_2.Parent = Button_2
 			canvasSize = canvasSize + 27
 			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 			if #DropdownFrame:GetChildren() < 8 then

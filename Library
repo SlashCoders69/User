@@ -636,23 +636,23 @@ function library:Window(name)
 			Button.ZIndex = 6 + zindex
 			Button.Text = name or "Button"
 			Button.TextWrapped = true
+			Button.MouseButton1Down:Connect(callback)
 
 			UICorner.Parent = Button
 
 			canvasSize = canvasSize + 27
+			DropdownFrame.Visible = false
 			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			if #DropdownFrame:GetChildren() < 8 then
 				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
 			end
 
-			Button.MouseButton1Down:Connect(callback)
-
-			callback(name)
-			DropdownFrame.Visible = false
 			if selective then
 				Dropdown.Text = name
 			end
+
+			pastSliders[winCount] = false
 		end
 
 		function dropFunctions:Remove(name)

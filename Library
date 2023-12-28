@@ -112,6 +112,8 @@ function library:Window(name)
 	local Window = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UICorner_2 = Instance.new("UICorner")
+	local UICorner_3 = Instance.new("UICorner")
+
 
 	UiWindow.Name = "UiWindow"
 	UiWindow.Parent = SlashUiLib
@@ -173,8 +175,9 @@ function library:Window(name)
 	Window.Size = UDim2.new(0, 207, 0, 33)
 	Window.ZIndex = 1 + zindex
 
-	UICorner.Parent = Header
-	UICorner_2.Parent = Window
+	UICorner.Parent = UiWindow
+	UICorner_2.Parent = Header
+	UICorner_3.Parent = Window
 
 	local functions = {}
 	sizes[winCount] = 33

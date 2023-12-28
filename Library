@@ -549,8 +549,6 @@ function library:Window(name)
 		local DownSign = Instance.new("TextLabel")
 		local DropdownFrame = Instance.new("ScrollingFrame")
 		local UICorner = Instance.new("UICorner")
-		local UICorner_2 = Instance.new("UICorner")
-		local UICorner_3 = Instance.new("UICorner")
 
 		sizes[winCount] = sizes[winCount] + 32
 		Window.Size = UDim2.new(0, 207, 0, sizes[winCount] + 10)
@@ -614,8 +612,6 @@ function library:Window(name)
 		DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
 
 		UICorner.Parent = Dropdown
-		UICorner_2.Parent = Downsign
-		UICorner_3.Parent = DropdownFrame
 
 		table.insert(dropdowns, DropdownFrame)
 

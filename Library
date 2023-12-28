@@ -104,7 +104,14 @@ function library:Window(name)
 	windowCount = windowCount + 1
 	local winCount = windowCount
 	local zindex = winCount * 7
+
 	local UiWindow = Instance.new("Frame")
+	local Header = Instance.new("Frame")
+	local HeaderText = Instance.new("TextLabel")
+	local Minimise = Instance.new("TextButton")
+	local Window = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local UICorner_2 = Instance.new("UICorner")
 
 	UiWindow.Name = "UiWindow"
 	UiWindow.Parent = SlashUiLib
@@ -114,11 +121,10 @@ function library:Window(name)
 	UiWindow.Size = UDim2.new(0, 207, 0, 33)
 	UiWindow.ZIndex = 4 + zindex
 	UiWindow.Active = true
-	Dragify(UiWindow)
 
+	Dragify(UiWindow)
 	xOffset = xOffset + 230
 
-	local Header = Instance.new("Frame")
 	Header.Name = "Header"
 	Header.Parent = UiWindow
 	Header.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
@@ -127,7 +133,6 @@ function library:Window(name)
 	Header.Size = UDim2.new(0, 207, 0, 26)
 	Header.ZIndex = 5 + zindex
 
-	local HeaderText = Instance.new("TextLabel")
 	HeaderText.Name = "HeaderText"
 	HeaderText.Parent = Header
 	HeaderText.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -139,9 +144,6 @@ function library:Window(name)
 	HeaderText.Text = name or "Window"
 	HeaderText.TextColor3 = Color3.fromRGB(0, 0, 0)
 	HeaderText.TextSize = 17.000
-
-	local Minimise = Instance.new("TextButton")
-	local Window = Instance.new("Frame")
 
 	Minimise.Name = "Minimise"
 	Minimise.Parent = Header
@@ -170,9 +172,6 @@ function library:Window(name)
 	Window.Position = UDim2.new(0, 0, 0, 0)
 	Window.Size = UDim2.new(0, 207, 0, 33)
 	Window.ZIndex = 1 + zindex
-
-	local UICorner = Instance.new("UICorner")
-	local UICorner_2 = Instance.new("UICorner")
 
 	UICorner.Parent = Header
 	UICorner_2.Parent = Window

@@ -739,7 +739,7 @@ function library:Window(name)
 		ToggleDescription.Parent = DropdownFrame
 		ToggleDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		ToggleDescription.BackgroundTransparency = 1.000
-		ToggleDescription.Position = UDim2.new(0, 14, 0, canvasSize + 1))
+		ToggleDescription.Position = UDim2.new(0, 14, 0, canvasSize + 1)
 		ToggleDescription.Size = UDim2.new(0, 131, 0, 26)
 		ToggleDescription.Font = Enum.Font.SourceSans
 		ToggleDescription.Text = text or "Toggle"

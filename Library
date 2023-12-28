@@ -655,6 +655,36 @@ function library:Window(name)
 			pastSliders[winCount] = false
 		end
 
+		function dropFunctions:Label(text)
+			local Label = Instance.new("TextLabel")
+			Label.Name = "Label"
+			Label.Parent = DropdownFrame
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			Label.Position = UDim2.new(0, 6, 0, canvasSize + 1)
+			Label.Size = UDim2.new(0, 206, 0, 29)
+			Label.Font = Enum.Font.SourceSans
+			Label.Text = text or "Label"
+			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Label.TextSize = 16.000
+			Label.ZIndex = 2 + zindex
+
+		canvasSize = canvasSize + 30
+			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
+
+			if #DropdownFrame:GetChildren() < 8 then
+				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 30)
+			end
+
+			if selective then
+				Dropdown.Text = name
+			end
+
+			pastSliders[winCount] = false
+		end
+
 		function dropFunctions:Remove(name)
 			local foundIt
 			for i, v in pairs(DropdownFrame:GetChildren()) do

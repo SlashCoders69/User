@@ -681,7 +681,9 @@ function library:Window(name)
 			pastSliders[winCount] = false
 		end
 
-		function dropFunctions:Box(text)
+		function dropFunctions:Box(text, callback)
+			local callback = callback or function() end
+
 			local TextBox = Instance.new("TextBox")
 			TextBox.Parent = DropdownFrame
 			TextBox.BackgroundColor3 = Color3.fromRGB(100, 0, 190)

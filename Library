@@ -223,7 +223,6 @@ function library:Window(name)
 		Label.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Label.TextSize = 16.000
 		Label.ZIndex = 2 + zindex
-		end
 
 		pastSliders[winCount] = false
 		return Label

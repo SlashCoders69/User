@@ -689,7 +689,7 @@ function library:Window(name)
 			TextBox.Position = UDim2.new(0, 6, 0, canvasSize + 1)
 			TextBox.Size = UDim2.new(0, 170, 0, 26)
 			TextBox.Font = Enum.Font.SourceSans
-			TextBox.PlaceholderColor3 = Color3.fromRGB(100, 0, 190)
+			TextBox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
 			TextBox.PlaceholderText = "..."
 			TextBox.Text = text or ""
 			TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -704,12 +704,12 @@ function library:Window(name)
 				callback(TextBox.Text, true)
 			end)
 
-			canvasSize = canvasSize + 27
+			canvasSize = canvasSize + 33
 			DropdownFrame.Visible = false
 			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
+				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 33)
 			end
 
 			pastSliders[winCount] = false

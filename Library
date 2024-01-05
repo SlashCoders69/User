@@ -646,6 +646,7 @@ function library:Window(name)
 
 			canvasSize = canvasSize + 27
 			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			if selective then
 				Dropdown.Text = name
@@ -671,6 +672,7 @@ function library:Window(name)
 
 			canvasSize = canvasSize + 27
 			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			pastSliders[winCount] = false
 		end
@@ -702,6 +704,7 @@ function library:Window(name)
 
 			canvasSize = canvasSize + 33
 			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			pastSliders[winCount] = false
 		end
@@ -758,6 +761,7 @@ function library:Window(name)
 
 			canvasSize = canvasSize + 27
 			DropdownFrame.Visible = false
+			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
 
 			pastSliders[winCount] = false
 		end

@@ -596,7 +596,7 @@ function library:Window(name)
 		DownSign.Position = UDim2.new(0, 155, 0, 2)
 		DownSign.Size = UDim2.new(0, 27, 0, 22)
 		DownSign.Font = Enum.Font.SourceSans
-		DownSign.Text = ">"
+		DownSign.Text = "V"
 		DownSign.TextColor3 = Color3.fromRGB(0, 0, 0)
 		DownSign.TextSize = 20.000
 		DownSign.ZIndex = 4 + zindex
@@ -607,8 +607,8 @@ function library:Window(name)
 		DropdownFrame.Active = true
 		DropdownFrame.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
 		DropdownFrame.BorderColor3 = Color3.fromRGB(100, 0, 190)
-		DropdownFrame.Position = UDim2.new(0, 183, 0, 0)
-		DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
+		DropdownFrame.Position = UDim2.new(0, 0, 0, 28)
+		DropdownFrame.Size = UDim2.new(0, 182, 0, 150)
 		DropdownFrame.Visible = false
 		DropdownFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 		DropdownFrame.ScrollBarThickness = 4
@@ -644,18 +644,6 @@ function library:Window(name)
 
 			UICorner.Parent = Button
 
-			canvasSize = canvasSize + 27
-			DropdownFrame.Visible = false
-			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
-
-			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
-			end
-
-			if selective then
-				Dropdown.Text = name
-			end
-
 			pastSliders[winCount] = false
 		end
 
@@ -673,14 +661,6 @@ function library:Window(name)
 			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Label.TextSize = 16.000
 			Label.ZIndex = 6 + zindex
-
-			canvasSize = canvasSize + 27
-			DropdownFrame.Visible = false
-			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
-
-			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
-			end
 
 			pastSliders[winCount] = false
 		end
@@ -709,14 +689,6 @@ function library:Window(name)
 			TextBox.FocusLost:Connect(function()
 				callback(TextBox.Text, true)
 			end)
-
-			canvasSize = canvasSize + 33
-			DropdownFrame.Visible = false
-			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
-
-			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 33)
-			end
 
 			pastSliders[winCount] = false
 		end
@@ -770,14 +742,6 @@ function library:Window(name)
 			ToggleFiller.Size = UDim2.new(0, 12, 0, 12)
 			ToggleFiller.Visible = on
 			ToggleFiller.ZIndex = 6 + zindex
-
-			canvasSize = canvasSize + 27
-			DropdownFrame.Visible = false
-			DropdownFrame.CanvasSize = UDim2.new(0, 182, 0, canvasSize + 1)
-
-			if #DropdownFrame:GetChildren() < 8 then
-				DropdownFrame.Size = UDim2.new(0, 182, 0, DropdownFrame.Size.Y.Offset + 27)
-			end
 
 			pastSliders[winCount] = false
 		end

@@ -155,16 +155,16 @@ function library:Window(name)
 	Minimise.Size = UDim2.new(0, 22, 0, 22)
 	Minimise.ZIndex = 7 + zindex
 	Minimise.Font = Enum.Font.SourceSansLight
-	Minimise.Text = "^"
+	Minimise.Text = "ʌ"
 	Minimise.TextColor3 = Color3.fromRGB(0, 0, 0)
 	Minimise.TextSize = 20.000
 	Minimise.MouseButton1Up:connect(function()
 		Window.Visible = not Window.Visible
-	if Window.Visible then
-		Minimise.Text = "^"
-	else
-		Minimise.Text = "+"
-	end
+		if Window.Visible then
+			Minimise.Text = "ʌ"
+		else
+			Minimise.Text = "v"
+		end
 	end)
 
 	Window.Name = "Window"
@@ -430,7 +430,7 @@ function library:Window(name)
 						local xOffset = mouse.X - delta1 - 3
 						if xOffset > 175 then
 							xOffset = 175
-						elseif xOffset< 0 then
+						elseif xOffset < 0 then
 							xOffset = 0
 						end
 						SliderButton.Position = UDim2.new(0, xOffset , -1.33333337, 0)
@@ -607,7 +607,7 @@ function library:Window(name)
 		DropdownFrame.Active = true
 		DropdownFrame.BackgroundColor3 = Color3.fromRGB(100, 0, 190)
 		DropdownFrame.BorderColor3 = Color3.fromRGB(100, 0, 190)
-		DropdownFrame.Position = UDim2.new(0, 183, 0, 28)
+		DropdownFrame.Position = UDim2.new(0, 183, 0, 0)
 		DropdownFrame.Size = UDim2.new(0, 182, 0, 0)
 		DropdownFrame.Visible = false
 		DropdownFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
